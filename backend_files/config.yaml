@@ -1,0 +1,26 @@
+dataset:
+  books_csv: "./backend_files/data/books_data/books.csv"
+  ratings_csv: "./backend_files/data/books_data/ratings.csv"
+  users_csv: "./backend_files/data/books_data/users.csv"
+
+llm_models:
+  selected_llm: "openai"
+  openai:
+    base_url : 'https://api.openai.com/v1/'
+    model_name: 'gpt-3.5-turbo'
+    api_key_name: 'OPENAI_API_KEY'
+    temperature: 0.0
+  
+  groq:
+    base_url : 'https://api.groq.com/openai/v1'
+    model_name: 'Llama3-70B-8192'
+    api_key_name: 'GROQ_API_KEY'
+    temperature: 0.0
+
+  ollama:
+    model_name: "llama3:instruct"
+    temperature: 0.0
+
+rag:
+  chat_memory:
+    window_buffer: 6

@@ -1,0 +1,5 @@
+**/test_*.ipynb
+backend_files/data/*
+!**/.gitkeeep
+.env
+**/__pycache__
