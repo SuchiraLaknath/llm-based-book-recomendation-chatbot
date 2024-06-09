@@ -3,11 +3,33 @@ import streamlit as st
 import requests
 import time
 
+
+if "selected_llm" not in st.session_state:
+    st.session_state.selected_llm = 'openai'
 configs = Configurations().get_config()
 
 backend_url = configs['backend']['url']
 
 st.title("Book recomending chatbot")
+
+def get_available_llm_list():
+    url = f"{backend_url}/get_available_llms"
+    response = requests.get(url=url,
+                             headers={"Content-Type": "application/json"})
+    response = response.json()
+    available_llms = response['available_llms']
+    return available_llms
+
+def select_llm(selection):
+    url = f"{backend_url}/select_llm"
+    selection = selection
+    selection = str(selection)
+    response = requests.post(url=url, json ={'selected_llm_name': selection}, 
+                            headers={"Content-Type": "application/json"})
+    response = response.json()
+    print(f"-------response = {response}")
+
+    
 
 def response_generator(prompt):
     
@@ -76,3 +98,10 @@ with st.sidebar:
                   type="primary",
                   on_click=clear_memory
                   )
+        
+    with st.container():
+        selection = st.selectbox(
+            label = "select llm",
+            options = get_available_llm_list()
+        )
+        select_llm(selection=selection)
