@@ -32,7 +32,8 @@ class BaseInference(ABC):
         memory = self.get_conversation_memory()
         memory.chat_memory.add_user_message(user_message)
         memory.chat_memory.add_ai_message(result)
-        return result
+        result_dict = {"result":result}
+        return result_dict
     
     def get_conversation_memory(self):
         return self.chat_memory.get_conversation_history()
