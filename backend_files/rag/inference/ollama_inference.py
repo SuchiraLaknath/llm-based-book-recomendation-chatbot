@@ -9,5 +9,5 @@ class Inference(BaseInference):
         return LLM()
     
     def post_process(self, llm_result):
-        post_process_result = llm_result
+        post_process_result = str(llm_result)
         return post_process_result
