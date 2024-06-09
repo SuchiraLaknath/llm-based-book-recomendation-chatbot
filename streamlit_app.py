@@ -47,6 +47,7 @@ def clear_memory():
     time.sleep(0.05)
     st.session_state.messages = load_messages()
 
+
 if "messages" not in st.session_state:
     st.session_state.messages = load_messages()
 

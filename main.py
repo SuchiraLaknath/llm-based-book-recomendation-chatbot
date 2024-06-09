@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
+from backend_files.utils.get_available_llms import get_available_llm_list
 
 from backend_files.read_config import Configurations
 from backend_files.get_inference_model import GetInferenceModel
@@ -23,4 +24,8 @@ def get_chat_history():
 @app.post('/clear_conversation_history')
 def clear_conversation_history():
     inference_model.clear_conversation_history()
+
+@app.get('/get_available_llms')
+def get_available_llms():
+    return get_available_llm_list()
 

@@ -5,6 +5,7 @@ dataset:
 
 llm_models:
   selected_llm: "openai"
+  available_llms: ["openai","groq","ollama"]
   openai:
     base_url : 'https://api.openai.com/v1/'
     model_name: 'gpt-3.5-turbo'
