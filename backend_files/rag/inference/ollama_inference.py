@@ -10,4 +10,4 @@ class Inference(BaseInference):
     
     def post_process(self, llm_result):
         post_process_result = str(llm_result)
-        return post_process_result 
+        return post_process_result  
