@@ -1,5 +1,5 @@
 **/test_*.ipynb
 backend_files/data/*
-!**/.gitkeeep
+!**/.gitkeep
 .env
 **/__pycache__
