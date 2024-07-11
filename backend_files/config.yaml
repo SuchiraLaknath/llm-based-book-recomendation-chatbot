@@ -25,3 +25,26 @@ llm_models:
 rag:
   chat_memory:
     window_buffer: 6
+
+  vectorstore:
+    embedding_model: "all-MiniLM-L6-v2"
+    vectordb_cache_directory: "backend_files/DB_files/vectorDB_caches/db_01"
+    dataloader:
+      csv_loader:
+        splitter:
+          seperator: "\n"
+          chunk_size: 450
+          chunk_overlap: 0
+        encoding: "windows-1252"
+        metadata_columns : ["ISBN", "Image-URL-S", "Image-URL-M", "Image-URL-L"]
+
+    retriever:
+      conversation_buffer_window_size: 4
+      retriver_k: 200
+      semantic_search_score_threshold: 0.3
+      search_type: "similarity"
+      metadata_columns: ["ISBN", "Image-URL-S", "Image-URL-M", "Image-URL-L"]
+
+  mongodb:
+    mongodb_host: "mongodb://localhost:27017/"
+
