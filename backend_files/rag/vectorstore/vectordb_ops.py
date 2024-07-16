@@ -14,6 +14,7 @@ class VectorDbOps:
             self.vectorstore = self.load_vectorstore_from_cache(vectorstore_cache_dir=vectorstore_cache_dir_path,
                                                   embedding_model= self.text_embedding_model)
 
+
     def get_csvloder_n_embedding_model_name(self, configs = None):
         if configs == None:
             configs = Configurations().get_config()
@@ -62,17 +63,3 @@ class VectorDbOps:
     
     def get_text_embedding_model(self):
         return self.text_embedding_model
-    
-    def similarity_search_in_vdb(self, quary, filtered_product_ids = []):
-        product_ids = []
-        retriever = self.get_retriever(filtered_product_ids= filtered_product_ids)
-        docs = retriever.invoke(quary)
-
-        for doc in docs:
-            product_id = doc.metadata['Id_Product']
-            product_ids.append(product_id)
- 
-        print("---------------------------------")
-        print(f"number of products ids = {len(product_ids)}")
-        print(f"number of filterd product ids = {len(filtered_product_ids)}")
-        return product_ids
