@@ -1,4 +1,4 @@
-from frontend_files.read_config import Configurations
+from read_config import Configurations
 import streamlit as st
 import requests
 import time

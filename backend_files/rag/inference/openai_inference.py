@@ -1,4 +1,4 @@
-from ...llms.openai_llm import LLM
+from llms.openai_llm import LLM
 from .base_inference import BaseInference
 
 class Inference(BaseInference):

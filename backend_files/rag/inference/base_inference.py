@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from ..memory.chat_memory_window_buffer import ChatMemory
+from rag.memory.chat_memory_window_buffer import ChatMemory
 
 class BaseInference(ABC):
     def __init__(self) -> None:

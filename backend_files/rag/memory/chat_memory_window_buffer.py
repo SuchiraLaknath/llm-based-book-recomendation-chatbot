@@ -1,5 +1,5 @@
 from langchain.memory import ConversationBufferWindowMemory
-from ...read_config import Configurations
+from read_config import Configurations
 
 class ChatMemory:
     def __init__(self) -> None:
