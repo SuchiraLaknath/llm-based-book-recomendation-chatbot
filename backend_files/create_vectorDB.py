@@ -1,4 +1,4 @@
-from backend_files.rag.vectorstore.vectordb_ops import VectorDbOps
+from rag.vectorstore.vectordb_ops import VectorDbOps
 
 def create_vectordb():
     vectordb_obj = VectorDbOps(create_vector_store =True)

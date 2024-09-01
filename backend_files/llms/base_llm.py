@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from ..read_config import Configurations
+from read_config import Configurations
 
 class BaseLlm(ABC):
     def __init__(self) -> None:

@@ -1,7 +1,7 @@
 from langchain_community.vectorstores.chroma import Chroma
 from langchain_community.embeddings import HuggingFaceEmbeddings
-from backend_files.utils.prepare_dataset.csv_file_loader import CsvDataLoader
-from backend_files.read_config import Configurations
+from utils.prepare_dataset.csv_file_loader import CsvDataLoader
+from read_config import Configurations
 
 class VectorDbOps:
 

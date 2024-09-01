@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
-from backend_files.utils.get_available_llms import get_available_llm_list
+from utils.get_available_llms import get_available_llm_list
 
-from backend_files.read_config import Configurations
-from backend_files.get_inference_model import GetInferenceModel
+from read_config import Configurations
+from get_inference_model import GetInferenceModel
 
 inference_model_obj = GetInferenceModel()
 

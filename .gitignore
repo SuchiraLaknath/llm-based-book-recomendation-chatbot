@@ -1,6 +1,7 @@
 **/test_*.ipynb
 backend_files/data/*
 backend_files/DB_files/vectorDB_caches/*
+DB_files/*
 !**/.gitkeep
 .env
 **/__pycache__

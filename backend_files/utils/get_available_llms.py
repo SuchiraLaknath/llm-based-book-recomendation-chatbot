@@ -1,4 +1,4 @@
-from ..read_config import Configurations
+from read_config import Configurations
 import json
 
 configs = Configurations().get_config()
