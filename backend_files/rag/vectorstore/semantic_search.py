@@ -14,11 +14,10 @@ class SemanticSearcher:
         docs = retriever.invoke(quary)
 
         for doc in docs:
-            print(doc)
+            # print(doc)
             product_id = doc.metadata["ISBN"]
             product_ids.append(product_id)
  
         print("---------------------------------")
         print(f"number of products ids = {len(product_ids)}")
-        print(f"number of filterd product ids = {len(filtered_product_ids)}")
         return product_ids

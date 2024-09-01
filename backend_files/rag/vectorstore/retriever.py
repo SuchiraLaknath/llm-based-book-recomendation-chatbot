@@ -1,5 +1,5 @@
 from .vectordb_ops import VectorDbOps
-from backend_files.read_config import Configurations
+from read_config import Configurations
 
 class Retriver:
     def __init__(self, configs = None) -> None:

@@ -5,15 +5,15 @@ from read_config import Configurations
 
 class BasePrompt(ABC):
     def __init__(self) -> None:
-        self.config =  Configurations().get_config()
-        prompt_dir_path = config.prompt_directory_path
-        system_prompt_file_name, user_prompt_file_name = config.system_and_human_prompt_files
-        self.system_prompt, self.user_prompt = self.prepare_prompt_texts(prompt_dir_path= prompt_dir_path, system_prompt_file_name= system_prompt_file_name, user_prompt_file_name= user_prompt_file_name)
+        config =  Configurations().get_config()
+        system_prompt_path = config['rag']['prompt']['main_search']['system_prompt']
+        user_prompt_path = config['rag']['prompt']['main_search']['user_prompt']
+        self.system_prompt, self.user_prompt = self.prepare_prompt_texts(system_prompt_file_name= system_prompt_path, user_prompt_file_name= user_prompt_path)
         self.prompt_template = self.prepare_full_prompt_template()
 
-    def prepare_prompt_texts(self, prompt_dir_path, system_prompt_file_name, user_prompt_file_name):
-        system_prompt = self.get_prompt(dir_path= prompt_dir_path, file_name= system_prompt_file_name)
-        user_prompt = self.get_prompt(dir_path= prompt_dir_path, file_name= user_prompt_file_name)
+    def prepare_prompt_texts(self, system_prompt_file_name, user_prompt_file_name):
+        system_prompt = self.get_prompt(file_path = system_prompt_file_name)
+        user_prompt = self.get_prompt(file_path = user_prompt_file_name)
         return system_prompt, user_prompt
     
     @abstractmethod
@@ -25,8 +25,7 @@ class BasePrompt(ABC):
         return prompt_text
     
     
-    def get_prompt(self, dir_path, file_name):
-        file_path = os.path.join(dir_path, file_name)
+    def get_prompt(self, file_path):
         prompt_text = self.load_prompt_template_text(file_path)
         return prompt_text
 

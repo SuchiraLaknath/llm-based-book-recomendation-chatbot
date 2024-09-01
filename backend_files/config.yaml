@@ -28,7 +28,7 @@ rag:
 
   vectorstore:
     embedding_model: "all-MiniLM-L6-v2"
-    vectordb_cache_directory: "backend_files/DB_files/vectorDB_caches/db_01"
+    vectordb_cache_directory: "DB_files/vectorDB_caches/db_01"
     dataloader:
       csv_loader:
         splitter:
@@ -45,6 +45,14 @@ rag:
       search_type: "similarity"
       metadata_columns: ["ISBN", "Image-URL-S", "Image-URL-M", "Image-URL-L"]
 
+  prompt:
+    main_search:
+      system_prompt: "utils/prompt_templates/main_semantic_search/system_prompt.txt"
+      user_prompt: "utils/prompt_templates/main_semantic_search/system_prompt.txt"
+
   mongodb:
     mongodb_host: "mongodb://localhost:27017/"
+    max_mongodb_results: 10
+    mongodb_collection_name : "book-database"
+    mongodb_database_name : "book_recomending_database_1"
 
